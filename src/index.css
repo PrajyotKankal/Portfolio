@@ -1,0 +1,86 @@
+/* Default (light) theme variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1f2937;
+  --primary-color: #3b82f6;
+  --accent-color: #7c3aed;
+  --card-bg-color: #f3f4f6;
+  --navbar-bg: #ffffff;
+  --background: #ffffff;
+}
+
+/* Dark theme variables */
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #3b82f6;
+  --accent-color: #7c3aed;
+  --card-bg-color: #1f2937;
+  --navbar-bg: #1f2937;
+  --background: #0f172a;
+}
+
+/* Apply globally */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons or highlights */
+button, .btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover, .btn:hover {
+  background-color: var(--accent-color);
+}
+
+/* Cards or info sections */
+.card, .info-card {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: none;
+}
+
+/* Any other containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #e5e5e5;
+}
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: 2px solid var(--background);
+}

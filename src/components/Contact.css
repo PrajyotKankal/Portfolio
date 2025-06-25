@@ -1,0 +1,50 @@
+.contact-modern {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #0f172a;
+  color: #e0e0e0;
+}
+
+.contact-modern h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #3b82f6;
+}
+
+.contact-modern p {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #cbd5e1;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.contact-btn {
+  background: #3b82f6;
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contact-modern h2 {
+    font-size: 2rem;
+  }
+  .contact-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
