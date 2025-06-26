@@ -1,20 +1,28 @@
 .contact-modern {
   padding: 4rem 2rem;
   text-align: center;
-  background: #0f172a;
-  color: #e0e0e0;
+  background-color: #0f172a; /* Fixed dark background */
+  color: #e0e0e0;             /* Fixed light text */
+  border-radius: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 .contact-modern h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #3b82f6;
+  color: #3b82f6; /* Primary accent stays consistent */
 }
 
 .contact-modern p {
   font-size: 1.1rem;
   margin-bottom: 2.5rem;
   color: #cbd5e1;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 .contact-buttons {
@@ -25,24 +33,30 @@
 }
 
 .contact-btn {
-  background: #3b82f6;
+  background-color: #3b82f6;
   color: white;
   padding: 0.9rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .contact-btn:hover {
-  background: #2563eb;
+  background-color: #2563eb;
+  transform: translateY(-2px);
 }
 
 /* Responsive */
 @media (max-width: 480px) {
+  .contact-modern {
+    padding: 3rem 1rem;
+  }
+
   .contact-modern h2 {
     font-size: 2rem;
   }
+
   .contact-btn {
     width: 100%;
     text-align: center;

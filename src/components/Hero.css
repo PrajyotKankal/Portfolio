@@ -214,26 +214,97 @@ body[data-theme='light'] .info-card {
 }
 
 .socials {
-  margin-top: 2rem;
+  margin-top: 1.2rem;
+  text-align: center;
 }
 
 .socials span {
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
   display: block;
 }
 
-.icons a {
-  color: #9ca3af;
-  margin-right: 12px;
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.icons a:hover {
-  color: var(--primary-color);
+.social-icons li {
+  position: relative;
+  flex-basis: 2.6rem;
 }
+
+.social-icons li::after {
+  position: absolute;
+  content: attr(data-tooltip);
+  inset: -40% auto auto 50%;
+  translate: -50%;
+  background: var(--bg, #070707);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    inset 0.3s cubic-bezier(0.47, 2, 0.41, 1.5),
+    visibility 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.social-icons li:has(a:hover, a:focus-visible)::after {
+  opacity: 1;
+  visibility: visible;
+  inset-block-start: -55%;
+}
+
+.social-icons a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  font-size: 1.15rem;
+  color: var(--text-color);
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color 0.25s ease-in-out;
+}
+
+.social-icons a::after {
+  content: '';
+  position: absolute;
+  inset: 100% 0 0;
+  background: var(--bg, #070707);
+  transition: inset 0.25s ease-in-out;
+  z-index: 0;
+}
+
+.social-icons a i {
+  z-index: 1;
+  position: relative;
+}
+
+.social-icons a:hover,
+.social-icons a:focus-visible {
+  color: #fff;
+}
+
+.social-icons a:hover::after,
+.social-icons a:focus-visible::after {
+  inset-block-start: 0;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {

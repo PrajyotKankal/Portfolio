@@ -1,27 +1,107 @@
+/* === THEME VARIABLES === */
 :root {
   --bg-color: #ffffff;
   --text-color: #000000;
   --accent-color: #007bff;
+  --card-bg: #f9f9f9;
+  --border-color: #dddddd;
 }
 
 [data-theme='dark'] {
   --bg-color: #121212;
   --text-color: #e4e4e4;
   --accent-color: #00bfff;
+  --card-bg: #1f1f1f;
+  --border-color: #2e2e2e;
 }
 
+/* === GLOBAL RESET === */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* === APP CONTAINER === */
 .App {
-  min-height: 100vh; /* full viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === BUTTONS === */
+button, .btn {
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* === SECTION HEADERS === */
+section h2 {
+  font-size: 2.4rem;
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* === CONTAINERS === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* === SCROLLBAR STYLE === */
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000; /* dark thumb */
+  border-radius: 4px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background-color: #444;
 }

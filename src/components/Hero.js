@@ -87,33 +87,51 @@ const Hero = ({ onProjectsClick }) => {
             <p>
               From responsive sites to refined UI/UX, my work reflects both technical skill and creative vision.
             </p>
-           <p className="resume-text">
-  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-    📄 View My Resume
-  </a>
-</p>         </div>
+            <p className="resume-text">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                📄 View My Resume
+              </a>
+            </p>         </div>
 
           <div className="socials">
-            <span>FOLLOW ME</span>
-            <div className="icons">
-              <a
-                href="https://www.linkedin.com/in/prajyot-kankal-89472b1ba"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <i className="fab fa-linkedin"></i>
-              </a>
-              <a
-                href="https://github.com/PrajyotKankal"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <i className="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
+  <span>FOLLOW ME</span>
+  <ul className="social-icons">
+    <li data-tooltip="LinkedIn" style={{ "--bg": "#0077b5" }}>
+      <a
+        href="https://www.linkedin.com/in/prajyot-kankal-89472b1ba"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <i className="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+
+    <li data-tooltip="GitHub" style={{ "--bg": "#0d1117" }}>
+      <a
+        href="https://github.com/PrajyotKankal"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <i className="fab fa-github"></i>
+      </a>
+    </li>
+
+    <li data-tooltip="Instagram" style={{ "--bg": "#e1306c" }}>
+      <a
+        href="https://www.instagram.com/mr.prajxot"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <i className="fab fa-instagram"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
         </motion.div>
       </motion.div>
     </section>

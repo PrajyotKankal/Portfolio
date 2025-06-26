@@ -1,72 +1,91 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import './Projects.css';
 
-const projectsData = [
+const projects = [
   {
     title: 'Sunil Phetawale',
-    description: 'A responsive website to showcase cultural heritage items and handcrafted products.',
-    details: `Built using semantic HTML5, CSS3, and vanilla JavaScript. Features include responsive layout with CSS Grid and Flexbox, smooth user experience, and subtle animations.`,
+    description: 'Responsive website showcasing cultural items and handcrafted products.',
     image: '/images/pheta.png',
     link: 'https://sunilphetawale.netlify.app/',
   },
   {
     title: 'Imagle',
-    description: 'A full-stack Image Request & Approval System tailored for team collaboration.',
-    details: `Developed with ReactJS, Node.js, Express, and MongoDB. Includes image uploads with tags, admin-user role-based login, approval workflows, download tracking, and fully responsive modern UI dashboards.`,
+    description: 'Secure internal image access system with role-based permissions.',
     image: '/images/imagle.png',
     link: 'https://github.com/PrajyotKankal/image-approval-system',
+  },
+  {
+    title: 'Arnavi Color Studio',
+    description: 'Modern React website for a photography studio with elegant galleries.',
+    image: '/images/arnavi-color-studio.png',
+    link: 'https://github.com/PrajyotKankal/Arnavi-Color-Studio',
   }
 ];
 
-const ProjectCard = ({ project }) => {
-  const [showDetails, setShowDetails] = useState(false);
+const Projects = () => {
+  const scrollRef = useRef(null);
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-  const toggleDetails = () => {
-    setShowDetails((prev) => !prev);
+  const handleMouseDown = (e) => {
+    isDown = true;
+    scrollRef.current.classList.add('dragging');
+    startX = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeft = scrollRef.current.scrollLeft;
+  };
+
+  const handleMouseLeave = () => {
+    isDown = false;
+    scrollRef.current.classList.remove('dragging');
+  };
+
+  const handleMouseUp = () => {
+    isDown = false;
+    scrollRef.current.classList.remove('dragging');
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
-    <section className="project-wrapper">
-      <div className={`project-card ${showDetails ? 'expanded' : ''}`}>
-        {project.image && (
-          <img src={project.image} alt={project.title} className="project-image" />
-        )}
-        <div className="project-content">
-          <h3>{project.title}</h3>
-          <p className="desc">{project.description}</p>
-          <div className="buttons">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Visit Site / GitHub
-            </a>
-            <button onClick={toggleDetails} className="btn btn-secondary">
-              {showDetails ? 'Hide Details' : 'Show Details'}
-            </button>
-          </div>
-          {showDetails && (
-            <div className="project-details visible">
-              <p>{project.details}</p>
+    <section id="projects" className="projects-section">
+      <h2>My Projects</h2>
+      <div
+        ref={scrollRef}
+        className="projects-scroll"
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
+        {projects.map((project, index) => (
+          <div className="project-card-wrapper" key={index}>
+            <div className="project-card">
+              <img src={project.image} alt={project.title} className="project-img" />
+              <div className="project-info">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-btn"
+                >
+                  Visit
+                </a>
+              </div>
             </div>
-          )}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
-
-const Projects = () => (
-  <section id="projects" className="projects-section">
-    <h2>My Projects</h2>
-    <div className="projects-grid">
-      {projectsData.map((project, index) => (
-        <ProjectCard key={index} project={project} />
-      ))}
-    </div>
-  </section>
-);
 
 export default Projects;

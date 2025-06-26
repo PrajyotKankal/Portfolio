@@ -1,13 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import { ThemeProvider } from './context/ThemeContext'; // ✅ correct path
+import { ThemeProvider, ThemeContext } from './context/ThemeContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
 
-function App() {
+function AppContent() {
+  const { darkMode } = useContext(ThemeContext);
+
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
@@ -19,23 +21,31 @@ function App() {
     contactRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    document.body.className = darkMode ? 'dark-theme' : 'light-theme';
+  }, [darkMode]);
+
   return (
-    <ThemeProvider>
-      <div className="App">
-        <Navbar
-          onProjectsClick={handleProjectsClick}
-          onContactClick={handleContactClick}
-        />
-        <Hero onProjectsClick={handleProjectsClick} />
-        <div ref={projectsRef}>
-          <Projects />
-        </div>
-        <div ref={contactRef}>
-          <Contact />
-        </div>
+    <div className="App">
+      <Navbar
+        onProjectsClick={handleProjectsClick}
+        onContactClick={handleContactClick}
+      />
+      <Hero onProjectsClick={handleProjectsClick} />
+      <div ref={projectsRef}>
+        <Projects />
       </div>
-    </ThemeProvider>
+      <div ref={contactRef}>
+        <Contact />
+      </div>
+    </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}
