@@ -1,9 +1,9 @@
-# 🌐 Prajyot Kankal - Developer Portfolio
+# Prajyot Kankal - Developer Portfolio
 
 Welcome to my personal developer portfolio built with **React.js**, designed to showcase my skills, projects, and achievements with a modern UI/UX approach.
 
-## 🚀 Live Site
-👉 [https://prajyot-portfolio.netlify.app](https://prajyot-portfolio.netlify.app)
+## Live Site
+[https://prajyot-portfolio.netlify.app](https://prajyot-portfolio.netlify.app)
 
 ## 🛠️ Built With
 - **React.js**
@@ -12,7 +12,7 @@ Welcome to my personal developer portfolio built with **React.js**, designed to 
 - **Font Awesome**
 - **Netlify** for hosting
 
-## 📂 Project Structure
+## Project Structure
 ```
 prajyot-portfolio/
 ├── public/
@@ -34,43 +34,26 @@ prajyot-portfolio/
 └── README.md
 ```
 
-## 📸 Features
-- 🌗 Dark/Light mode toggle with animated bulb
-- 🧭 Smooth navigation to Projects & Contact sections
-- 🎞️ Horizontal scroll project section with animated effects
-- 🏆 Certification Banner to highlight achievements
-- 📱 Fully responsive on all screen sizes
-- 🎨 Clean and modern design
+## Features
+- Dark/Light mode toggle with animated bulb
+- Smooth navigation to Projects & Contact sections
+- Horizontal scroll project section with animated effects
+- Certification Banner to highlight achievements
+- Fully responsive on all screen sizes
+- Clean and modern design
 
-## 🧩 How to Run Locally
-
-```bash
-git clone https://github.com/PrajyotKankal/Portfolio.git
-cd Portfolio
-npm install
-npm start
-```
-
-## 🌍 Deploy to Netlify
-
-```bash
-netlify link
-netlify build
-netlify deploy
-```
-
-## 🧠 About Me
+## About Me
 
 I’m a passionate front-end developer who loves building beautiful, functional, and responsive interfaces. I'm currently working on several freelance and personal projects involving modern web technologies.
 
 ---
 
-## 📬 Connect with Me
+## Connect with Me
 
-- 📧 [prajyotkankal9@gmail.com](mailto:prajyotkankal9@gmail.com)
-- 🔗 [LinkedIn](https://www.linkedin.com/in/prajyot-kankal-89472b1ba)
-- 💻 [GitHub](https://github.com/PrajyotKankal)
+- [prajyotkankal9@gmail.com](mailto:prajyotkankal9@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/prajyot-kankal-89472b1ba)
+- [GitHub](https://github.com/PrajyotKankal)
 
 ---
 
-> Designed & developed with ❤️ by **Prajyot Kankal**
+> Designed & developed with by **Prajyot Kankal**
