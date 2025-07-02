@@ -1,17 +1,22 @@
 import React, { useContext } from 'react';
-import './Hero.css';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../context/ThemeContext';
+import './Hero.css';
 
-import bulbOn from '../assets/bulb-on.png';  // Make sure you have separate on/off images
+import bulbOn from '../assets/bulb-on.png';
 import bulbOff from '../assets/bulb-off.png';
 
 const Hero = ({ onProjectsClick }) => {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <section className="hero-container">
-      {/* Theme toggle bulb */}
+    <motion.section
+      className="hero-container"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
+      {/* Theme Toggle Bulb */}
       <button className="bulb-toggle" onClick={toggleTheme} aria-label="Toggle theme">
         <img
           src={darkMode ? bulbOn : bulbOff}
@@ -20,9 +25,9 @@ const Hero = ({ onProjectsClick }) => {
         />
       </button>
 
-      {/* Left side image */}
+      {/* Left Portrait with Tilt */}
       <motion.div
-        className="hero-left"
+        className="hero-left tilt-card"
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
@@ -30,7 +35,7 @@ const Hero = ({ onProjectsClick }) => {
         <img src="/prajyot.png" alt="Prajyot Kankal portrait" />
       </motion.div>
 
-      {/* Right side text */}
+      {/* Right Text Content */}
       <motion.div
         className="hero-right"
         initial={{ opacity: 0, x: 100 }}
@@ -38,15 +43,16 @@ const Hero = ({ onProjectsClick }) => {
         transition={{ duration: 1 }}
       >
         <div className="logo">💻 Prajyot Kankal</div>
+
         <h1>
           Hi, I'm Prajyot!
           <br />
           <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            className="role-text"
+            animate={{ opacity: [0, 1, 1, 0], x: [20, 0, 0, -20] }}
+            transition={{ duration: 5, repeat: Infinity }}
           >
-            WEB DEVELOPER
+            Web Developer
           </motion.span>
         </h1>
 
@@ -58,16 +64,18 @@ const Hero = ({ onProjectsClick }) => {
           A passionate web developer blending creativity with code to build modern, responsive experiences.
         </motion.p>
 
-        {/* Animated down arrow */}
+        {/* Scroll Down Icon */}
         <motion.div
-          className="arrow"
-          animate={{ y: [0, 10, 0] }}
+          className="scroll-indicator"
+          animate={{ y: [0, 15, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
         >
-          ⬇️
+          <i className="fas fa-angle-double-down"></i>
         </motion.div>
 
-        {/* Info card */}
+       
+
+        {/* Info Card */}
         <motion.div
           className="info-card"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -77,8 +85,8 @@ const Hero = ({ onProjectsClick }) => {
           <div className="about">
             <h3>ABOUT ME</h3>
             <p>
-              I'm a developer who turns ideas into clean, interactive digital experiences. Currently working at Wipro,
-              I specialize in React, JavaScript, and modern frontend ecosystems.
+              I'm a developer who turns ideas into clean, interactive digital experiences.
+              Currently working at Wipro, I specialize in MERN, JavaScript, and modern frontend ecosystems.
             </p>
           </div>
 
@@ -91,50 +99,51 @@ const Hero = ({ onProjectsClick }) => {
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 📄 View My Resume
               </a>
-            </p>         </div>
+            </p>
+          </div>
 
+          {/* Social Icons */}
           <div className="socials">
-  <span>FOLLOW ME</span>
-  <ul className="social-icons">
-    <li data-tooltip="LinkedIn" style={{ "--bg": "#0077b5" }}>
-      <a
-        href="https://www.linkedin.com/in/prajyot-kankal-89472b1ba"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-      >
-        <i className="fab fa-linkedin-in"></i>
-      </a>
-    </li>
-
-    <li data-tooltip="GitHub" style={{ "--bg": "#0d1117" }}>
-      <a
-        href="https://github.com/PrajyotKankal"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-      >
-        <i className="fab fa-github"></i>
-      </a>
-    </li>
-
-    <li data-tooltip="Instagram" style={{ "--bg": "#e1306c" }}>
-      <a
-        href="https://www.instagram.com/mr.prajxot"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-      >
-        <i className="fab fa-instagram"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
+            <span>FOLLOW ME</span>
+            <ul className="social-icons">
+              <li data-tooltip="LinkedIn" style={{ "--bg": "#0077b5" }}>
+                <a
+                  href="https://www.linkedin.com/in/prajyot-kankal-89472b1ba"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li data-tooltip="GitHub" style={{ "--bg": "#0d1117" }}>
+                <a
+                  href="https://github.com/PrajyotKankal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <i className="fab fa-github"></i>
+                </a>
+              </li>
+              <li data-tooltip="Instagram" style={{ "--bg": "#e1306c" }}>
+                <a
+                  href="https://www.instagram.com/mr.prajxot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+            
+          </div>
         </motion.div>
       </motion.div>
-    </section>
+      
+      
+    </motion.section>
   );
 };
 

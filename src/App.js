@@ -14,6 +14,7 @@ function AppContent() {
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
+  // Scroll handlers for navbar clicks
   const handleProjectsClick = () => {
     projectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -22,6 +23,7 @@ function AppContent() {
     contactRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Apply theme to body class
   useEffect(() => {
     document.body.className = darkMode ? 'dark-theme' : 'light-theme';
   }, [darkMode]);
@@ -32,12 +34,18 @@ function AppContent() {
         onProjectsClick={handleProjectsClick}
         onContactClick={handleContactClick}
       />
+
       <Hero onProjectsClick={handleProjectsClick} />
-      {/* Skills / Tech Stack Section */}
+
+      {/* Tech Stack / Skills */}
       <TechSlider />
+
+      {/* Projects */}
       <div ref={projectsRef}>
         <Projects />
       </div>
+
+      {/* Contact */}
       <div ref={contactRef}>
         <Contact />
       </div>

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import './Projects.css';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -65,7 +66,14 @@ const Projects = () => {
         onMouseMove={handleMouseMove}
       >
         {projects.map((project, index) => (
-          <div className="project-card-wrapper" key={index}>
+          <motion.div
+            className="project-card-wrapper"
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
             <div className="project-card">
               <img src={project.image} alt={project.title} className="project-img" />
               <div className="project-info">
@@ -81,7 +89,7 @@ const Projects = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
