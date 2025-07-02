@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import TechSlider from './components/TechSlider';
 import { ThemeProvider, ThemeContext } from './context/ThemeContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
@@ -32,6 +33,8 @@ function AppContent() {
         onContactClick={handleContactClick}
       />
       <Hero onProjectsClick={handleProjectsClick} />
+      {/* Skills / Tech Stack Section */}
+      <TechSlider />
       <div ref={projectsRef}>
         <Projects />
       </div>
